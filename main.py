@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.ui import InputText, Modal, Button
 import requests
 from dotenv import load_dotenv
-
+import random
 from pathlib import Path
 
 load_dotenv()
@@ -35,5 +35,10 @@ async def show_spell(ctx, spell):
     spell.add_field(name="Duration", value=spell_data["duration"], inline=True)
     await ctx.send(embed=spell)
 
+
+@bot.slash_command(name="Roll D20")
+async def roll_d_twenty(ctx):
+    num = random.randint(1, 20)
+    await ctx.send("fYou rolled a, {num}!")
 
 bot.run(TOKEN)
