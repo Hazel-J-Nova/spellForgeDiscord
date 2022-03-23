@@ -39,6 +39,6 @@ async def show_spell(ctx, spell):
 @bot.slash_command(name="rolld20")
 async def roll_d_twenty(ctx):
     num = random.randint(1, 20)
-    await ctx.send("fYou rolled a, {num}!")
+    await ctx.send(f"You rolled a, {num}!")
 
 bot.run(TOKEN)
