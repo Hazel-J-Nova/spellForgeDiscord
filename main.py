@@ -13,17 +13,17 @@ load_dotenv(dotenv_path=env_path)
 
 TOKEN = os.getenv("TOKEN")
 
-API_URL = "http://spellbotapi.online/spells"
+API_URL = "https://spellforgeapi.online/spells"
 
 
 bot = discord.Bot()
 
 
 @bot.slash_command(name="spell", guild_id=(822661824909672449))
-async def show_spell(ctx, message):
+async def show_spell(ctx, spell):
 
     """Search for a dnd Spell by name."""
-    spell_response = requests.get(f"{API_URL}/{message}")
+    spell_response = requests.get(f"{API_URL}/{spell}")
 
     spell_data = spell_response.json()
     spell = discord.Embed(
